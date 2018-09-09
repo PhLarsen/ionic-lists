@@ -1,0 +1,7 @@
+{
+  "name": "ionic-lists",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
