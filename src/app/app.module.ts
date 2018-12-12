@@ -6,7 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {TestInterceptor} from '../TestInterceptor';
 @NgModule({
   declarations: [
     MyApp,
@@ -22,6 +23,12 @@ import { HomePage } from '../pages/home/home';
     HomePage
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TestInterceptor,
+      multi: true
+    },
+
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
