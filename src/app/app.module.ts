@@ -6,12 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { SpongeBobPage } from '../pages/sponge-bob/sponge-bob';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {TestInterceptor} from '../TestInterceptor';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage, SpongeBobPage
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -20,7 +21,7 @@ import {TestInterceptor} from '../TestInterceptor';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage, SpongeBobPage
   ],
   providers: [
     {
