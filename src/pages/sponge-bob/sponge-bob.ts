@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RngProvider } from '../../providers/rng/rng';
+import { SingletonTestPage } from '../singleton-test/singleton-test';
 
 /**
  * Generated class for the SpongeBobPage page.
@@ -17,8 +19,10 @@ export class SpongeBobPage {
   inputText: string;
   outputText: string = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public rngProvider: RngProvider) {
   }
+
+  
 
   generateMemeText(){
     if(this.inputText){
@@ -33,8 +37,13 @@ export class SpongeBobPage {
   }
   }
 
+  navigateToTestPage(){
+    this.navCtrl.push(SingletonTestPage);
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpongeBobPage');
+    this.rngProvider.log();
   }
 
 }

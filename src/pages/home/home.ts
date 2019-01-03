@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { SpongeBobPage } from '../sponge-bob/sponge-bob';
+import { RngProvider } from '../../providers/rng/rng';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -9,7 +10,7 @@ import { SpongeBobPage } from '../sponge-bob/sponge-bob';
 export class HomePage {
   data: any;
   posts : any[] = [];
-  constructor(public navCtrl: NavController, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public http: HttpClient, public rngProvider: RngProvider) {
     this.getAllActiveOrders().then(data => {
       this.data = data;
       for(var i = 0; i < this.data.length; i++) {
@@ -20,7 +21,19 @@ export class HomePage {
     }
     console.log(this.posts);
     });
+
+    console.log("ionViewDidLoad Home");
+    this.rngProvider.log();
+    this.rngProvider.set("First singleton data");
   }
+/*
+  ionViewDidLoad(){
+    console.log("ionViewDidLoad Home");
+    this.rngProvider.log();
+    this.rngProvider.set("First singleton data");
+  }
+  */
+
   getAllActiveOrders() {
     return new Promise((resolve, reject) => {
       this.http.get("https://jsonplaceholder.typicode.com/posts").subscribe(

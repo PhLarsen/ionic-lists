@@ -9,10 +9,12 @@ import { HomePage } from '../pages/home/home';
 import { SpongeBobPage } from '../pages/sponge-bob/sponge-bob';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {TestInterceptor} from '../TestInterceptor';
+import { RngProvider } from '../providers/rng/rng';
+import { SingletonTestPage } from '../pages/singleton-test/singleton-test';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage, SpongeBobPage
+    HomePage, SpongeBobPage, SingletonTestPage
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -21,7 +23,7 @@ import {TestInterceptor} from '../TestInterceptor';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage, SpongeBobPage
+    HomePage, SpongeBobPage, SingletonTestPage
   ],
   providers: [
     {
@@ -32,7 +34,8 @@ import {TestInterceptor} from '../TestInterceptor';
 
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RngProvider
   ]
 })
 export class AppModule {}
