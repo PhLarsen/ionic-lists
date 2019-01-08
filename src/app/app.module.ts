@@ -11,6 +11,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {TestInterceptor} from '../TestInterceptor';
 import { RngProvider } from '../providers/rng/rng';
 import { SingletonTestPage } from '../pages/singleton-test/singleton-test';
+import { Network } from '@ionic-native/network';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 @NgModule({
   declarations: [
     MyApp,
@@ -35,7 +37,7 @@ import { SingletonTestPage } from '../pages/singleton-test/singleton-test';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RngProvider
+    RngProvider, Network, BarcodeScanner
   ]
 })
 export class AppModule {}

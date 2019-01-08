@@ -23,5 +23,4 @@ export class RngProvider {
   generateRandomNumber(){
     return Math.random();
   }
-
 }
